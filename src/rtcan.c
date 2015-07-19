@@ -322,9 +322,12 @@ void rtcan_rx_isr_code(RTCANDriver * rtcanp) {
 			if (msgp->callback) {
 				msgp->status = RTCAN_MSG_BUSY;
 				msgp->callback(msgp);
-				msgp->status = RTCAN_MSG_READY;
 			}
 		}
+	}
+
+	if (msgp->status == RTCAN_MSG_ERROR) {
+		msgp->callback(msgp);
 	}
 	chSysUnlockFromIsr();
 }
