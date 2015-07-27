@@ -28,7 +28,7 @@ uint32_t last_sync_tim = 0;
 uint8_t stm32_id8(void) {
 	const unsigned long * uid = (const unsigned long *) 0x1FFFF7E8;
 
-	return (uid[2] & 0xFF);
+	return (uid[0] & 0xFF);
 }
 
 bool_t rtcan_ismaster(void) {

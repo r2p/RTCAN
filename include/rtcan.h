@@ -6,7 +6,7 @@
 #include "board.h"
 #include "ch.h"
 
-#ifdef STM32F10X
+#ifdef STM32F10X_MD
 #include "stm32f10x.h"
 #endif
 

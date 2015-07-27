@@ -540,6 +540,7 @@ bool_t rtcan_lld_can_addfilter(RTCANDriver* rtcanp, uint32_t id, uint32_t mask, 
 					cfp->FR1 = id | mask;
 			} else {
 				can->FS1R |= fmask;
+				can->FM1R &= ~fmask;
 				cfp->FR1 = id << 3;
 				cfp->FR2 = mask << 3;
 			}
