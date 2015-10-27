@@ -28,7 +28,8 @@ uint32_t last_sync_tim = 0;
 uint8_t stm32_id8(void) {
 #ifdef MODULE_ID
 	return (MODULE_ID & 0xFF);
-#else	const unsigned long * uid = (const unsigned long *) 0x1FFFF7E8;
+#else
+	const unsigned long * uid = (const unsigned long *) 0x1FFFF7E8;
 
 	return (uid[0] & 0xFF);
 #endif
